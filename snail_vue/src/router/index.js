@@ -9,6 +9,8 @@ import Register from '@/components/Register'
 import Histroy from '@/components/Histroy'
 import Search from '@/components/Search'
 import Detail from '@/components/Detail'
+import Person from '@/components/Person'
+import Chat from '@/components/Chat'
 
 Vue.use(Router)
 
@@ -39,7 +41,12 @@ export default new Router({
     {
       path: '/homepage',
       name: 'HomePage',
-      component: HomePage
+      component: HomePage,
+      children: [{
+        path: '/person',
+        name: 'Person',
+        component: Person
+      }]
     },
     {
       path: '/detail',
@@ -60,6 +67,11 @@ export default new Router({
       path: '/histroy',
       name: 'Histroy',
       component: Histroy
+    },
+    {
+      path: '/chat',
+      name: 'Chat',
+      component: Chat
     }
   ]
 })
