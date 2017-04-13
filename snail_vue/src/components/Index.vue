@@ -28,6 +28,34 @@
         </ul>
     </div>
 
+<!-- swiper -->
+ <!--  <mt-swipe :show-indicators="false" :auto="5000" style="height:200px;">
+    <mt-swipe-item>
+        <a href="#">
+          <img v-bind:src="../resource/img/index/2.jpg">
+        </a>
+    </mt-swipe-item>
+    <mt-swipe-item>
+        <a href="#">
+          <img v-bind:src="../resource/img/index/3.jpg">
+        </a>
+    </mt-swipe-item>
+    <mt-swipe-item>
+        <a href="#">
+          <img v-bind:src="../resource/img/index/4.jpg">
+        </a>
+    </mt-swipe-item>
+    <mt-swipe-item>
+        <a href="#">
+          <img v-bind:src="../resource/img/index/5.jpg">
+        </a>
+    </mt-swipe-item>
+    <mt-swipe-item>
+        <a href="#">
+          <img v-bind:src="../resource/img/index/6.jpg">
+        </a>
+    </mt-swipe-item>            
+  </mt-swipe> -->
 
    <!--  <ul>
       <li v-for='list in $store.state.shopList'>
@@ -48,7 +76,7 @@
 /*top*/
 #top{
   width: 100%;
-  height: 0.8rem;
+  height: 0.7rem;
   padding: 0.1rem;
   overflow-x: hidden; 
   background-color: #fff;
@@ -90,7 +118,7 @@
 }
 
 #nav li{
-  width: 0.5rem;
+  width: 0.68rem;
   height: 0.5rem;
   float: left;
   line-height: 0.5rem;
@@ -105,6 +133,7 @@
   text-align: center;
   color: #555;
   position: relative;
+  font-weight: 600;
 }
 
 #nav li a::after {
@@ -112,23 +141,29 @@
     display: block;
     position: absolute;
     font-size: 0.18rem;
-    left: 0.1rem;
-    top: 0.1rem;
+    left: 0.56rem;
+    top: 0.22rem;
     width: 0;
     height: 0;
     border-top: 0.1rem solid black;
-    border-left: 0.1rem solid transparent;
-    border-bottom: 0.11rem solid transparent;
-    border-right: 0.1rem solid transparent;
+    border-left: 0.08rem solid transparent;
+    border-bottom: 0.1rem solid transparent;
+    border-right: 0.08rem solid transparent;
 }
 
 
 </style>
 
 <script>
+import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'
 import { Toast } from 'mint-ui'
 import { Indicator } from 'mint-ui'
+import { Swipe, SwipeItem } from 'mint-ui'
+
+// swiper相关组件 
+Vue.component(Swipe.name, Swipe)
+Vue.component(SwipeItem.name, SwipeItem)
 
 export default {
   name: 'index',

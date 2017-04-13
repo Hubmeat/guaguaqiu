@@ -1,6 +1,11 @@
 <template>
   <div>
     <h1>{{msg}}</h1>
+  
+  <a href="#/person"></a>
+  <router-view></router-view>
+  
+  
   </div>
 </template>
 
