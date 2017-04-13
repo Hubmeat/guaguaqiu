@@ -41,12 +41,12 @@ export default new Router({
     {
       path: '/homepage',
       name: 'HomePage',
-      component: HomePage,
-      children: [{
-        path: '/person',
-        name: 'Person',
-        component: Person
-      }]
+      component: HomePage
+    },
+    {
+      path: '/person',
+      name: 'Person',
+      component: Person
     },
     {
       path: '/detail',
