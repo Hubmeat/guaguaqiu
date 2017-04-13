@@ -11,6 +11,11 @@ import Search from '@/components/Search'
 import Detail from '@/components/Detail'
 import Person from '@/components/Person'
 import Chat from '@/components/Chat'
+import House from '@/components/childPage/House'
+import Other from '@/components/childPage/Other'
+import City from '@/components/childPage/City'
+import Space from '@/components/childPage/Space'
+import Style from '@/components/childPage/Style'
 
 Vue.use(Router)
 
@@ -25,6 +30,31 @@ export default new Router({
           path: '/search',
           name: 'Search',
           component: Search
+        },
+        {
+          path: '/house',
+          name: 'House',
+          component: House
+        },
+        {
+          path: '/other',
+          name: 'Other',
+          component: Other
+        },
+        {
+          path: '/city',
+          name: 'City',
+          component: City
+        },
+        {
+          path: '/space',
+          name: 'Space',
+          component: Space
+        },
+        {
+          path: '/style',
+          name: 'Style',
+          component: Style
         }
       ]
     },
