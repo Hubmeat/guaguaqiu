@@ -36,9 +36,17 @@
 </template>
 
 <style>
-h1,h2,h3,h4,h5,h6,ul,li,a,p,dt,dl,dd,span,pre,b,input,button {
+body,html,h1,h2,h3,h4,h5,h6,ul,li,a,p,dt,dl,dd,span,pre,b,input,button {
   padding: 0;
   margin: 0;
+}
+
+.l {
+  float: left;
+}
+
+.r {
+  float: right;
 }
 
 @font-face {
