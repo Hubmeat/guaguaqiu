@@ -9,15 +9,15 @@
             </li>
             <li>
               <p>城市</p>
-              <p><a href="#">全国</a><span>></span></p>
+              <p><a href="#/city">全国</a><span>></span></p>
             </li>
             <li>
               <p>空间</p>
-              <p><a href="#">客厅</a><span>></span></p>
+              <p><a href="#/space">客厅</a><span>></span></p>
             </li>
             <li>
               <p>风格</p>
-              <p><a href="#">美式</a><span>></span></p>
+              <p><a href="#/style">美式</a><span>></span></p>
             </li>
         </ul>
     </div>
