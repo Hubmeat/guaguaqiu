@@ -11,11 +11,16 @@ import Search from '@/components/Search'
 import Detail from '@/components/Detail'
 import Person from '@/components/Person'
 import Chat from '@/components/Chat'
+
 import House from '@/components/childPage/House'
 import Other from '@/components/childPage/Other'
 import City from '@/components/childPage/City'
 import Space from '@/components/childPage/Space'
 import Style from '@/components/childPage/Style'
+
+import Works from '@/components/collectChild/Works'
+import Image from '@/components/collectChild/Image'
+import Goods from '@/components/collectChild/Goods'
 
 Vue.use(Router)
 
@@ -61,7 +66,24 @@ export default new Router({
     {
       path: '/collect',
       name: 'Collect',
-      component: Collect
+      component: Collect,
+      children: [
+        {
+          path: '/collect/works',
+          name: 'Works',
+          component: Works
+        },
+        {
+          path: '/collect/image',
+          name: 'Image',
+          component: Image
+        },
+        {
+          path: '/collect/goods',
+          name: 'Goods',
+          component: Goods
+        }
+      ]
     },
     {
       path: '/message',
