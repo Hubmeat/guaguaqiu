@@ -11,6 +11,7 @@ import Search from '@/components/Search'
 import Detail from '@/components/Detail'
 import Person from '@/components/Person'
 import Chat from '@/components/Chat'
+import Online from '@/components/Online'
 
 import House from '@/components/childPage/House'
 import Other from '@/components/childPage/Other'
@@ -124,6 +125,11 @@ export default new Router({
       path: '/chat',
       name: 'Chat',
       component: Chat
+    },
+    {
+      path: '/online',
+      name: 'Online',
+      component: Online
     }
   ]
 })

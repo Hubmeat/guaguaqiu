@@ -4,7 +4,7 @@
         <ul>
             <li>
               <p>
-                <a href="#/" class="l">取消</a>户型
+                <a href="#/other" class="l">取消</a>户型
               </p>
             </li>
             <li>

@@ -14,16 +14,10 @@
         <div id="nav">
             <ul>
                 <li>
-                    <a href="#">风格</a>
+                    <a href="#/house">城市</a>
                 </li>
                 <li>
-                    <a href="#">户型</a>
-                </li>
-                <li>
-                    <a href="#">空间</a>
-                </li>
-                <li>
-                    <a href="#">城市</a>
+                    <a href="#/other">筛选</a>
                 </li>
             </ul>
         </div>

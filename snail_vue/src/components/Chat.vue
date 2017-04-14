@@ -7,7 +7,7 @@
     </div>
     <div id="chat_content">
       <div class="chat_box1">
-        <img src="../resource/img/chat/1.jpg" />
+        <!-- <img src="../resource/img/chat/1.jpg" /> -->
         <span class="chat_span3">刘西城</span>
         <span class="chat_span4">服务于苏州</span>
       </div>
@@ -15,7 +15,7 @@
         【尊享魅力设计，百变品质生活！】设计是一种追求完美的生活态度，设计是一种追求完美的生活态度，设计是一种追求完美的生活态。，设计是一种追求完美的生活态度，设计是一种追求完美的生活态度，设计是一种追求完美的生活态度。
       </p>
       <div class="chat_box2">
-        <img src="../resource/img/detail/1.jpg" />
+        <!-- <img src="../resource/img/detail/1.jpg" /> -->
       </div>
     </div>
   </div>
