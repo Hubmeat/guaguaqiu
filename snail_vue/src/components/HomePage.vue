@@ -26,6 +26,11 @@
     </div>
     <div id="hp_bottom">
       <span>近一周浏览</span>
+      <i class="iconfont del">&#xe636;</i>
+      <div id="hp_doc">
+        <i class="iconfont">&#xe65e;</i>
+      </div>
+      <div id="hp_none">暂无浏览</div>
     </div>
     <!-- footer -->
   <div id="footer">
@@ -143,13 +148,44 @@ export default {
   #hp_bottom{
     background: #f6f6f6;
     min-height: 8rem;
-     overflow-y: hidden;
+    overflow-y: hidden;
+    position: relative;
+  }
+  #hp_bottom .del{
+    color:#999999;
+    font-size: 0.29rem;
+    position: absolute;
+    top:0.46rem;
+    left: 1.83rem;
   }
   #hp_bottom span{
     font-size: 0.25rem;
     color:#666666;
-    margin-left: 0.31rem;
-    margin-top: -0.2rem;
+    position: absolute;
+    top:0.46rem;
+    left:0.32rem;
+  }
+  #hp_doc{
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top:2.25rem;
+    left:3.26rem;
+    background: #cecece;
+    border-radius: 10%;
+    text-align: center;
+    line-height: 0.5rem;
+  }
+  #hp_doc .iconfont{
+    color:white;
+    font-size: 0.5rem;
+  }
+  #hp_none{
+    font-size: 0.23rem;
+    color: #c9c9c9;
+    position: absolute;
+    top:3.62rem;
+    left:3.26rem;
   }
   #footer{
   width: 100%;

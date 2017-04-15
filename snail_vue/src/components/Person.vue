@@ -9,7 +9,8 @@
     <div id="ps_photo">
        <img src="../resource/img/homepage/1.png" >
     </div>
-    <i class="iconfont" id="ph_mark"  v-on:click="onPhClick">&#xe6be;</i>
+    <i class="iconfont" id="ph_mark"  v-on:click="onPhClick">&#xe663;</i>
+    <input type="file" id="ps_file">
     <div id="ps_name">
         <h3>噗嗤</h3>
         <div>修改昵称</div>
@@ -101,15 +102,6 @@
             <li>东南亚</li>
             <li>简约</li>
           </ul>
-    </div>
-    <div id="changename">
-        <div id="namehead">
-          <h3>昵称</h3>
-          <span>保存</span>
-        </div>
-        <div id="changecontent">
-          <input type="text"></input>
-        </div>
     </div>
     <div id="ps_mark"></div>
 </div>
@@ -234,6 +226,15 @@ export default {
     width: 100%;
     height: 100%;
   }
+#ps_file{
+  width: 1.3rem;
+  height: 1.3rem;
+  opacity: 0;
+  position: absolute;
+  left:0.3rem;
+  top:0.44rem; 
+  z-index: 10;
+}
 #ph_mark{
   width: 1.3rem;
   height: 1.3rem;
@@ -247,6 +248,7 @@ export default {
   text-align: center;
   font-size: 0.5rem;
   line-height: 1.3rem;
+  z-index: 9;
 }
 #ps_myim{
   height: 1.76rem;
@@ -278,6 +280,7 @@ export default {
   margin-left: 0.3rem;
 }
 #ps_bottom li{
+  list-style: none;
   height:1.67rem;
   border-bottom: 1px #e7e7e7 solid;
   position: relative;
@@ -389,20 +392,6 @@ export default {
   transition: 0.5s;
   background:white;
   z-index: 100;
-}
-#changename{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top:0;
-  text-align: center;
-}
-#namehead{
-  height: 0.89rem;
-  line-height: 0.89rem;
-}
-#namehead h3{
-  font-size: 0.36rem;
 }
 #ps_mark{
   background: black;
