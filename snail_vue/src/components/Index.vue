@@ -189,7 +189,10 @@
     <button @click='loadClick'>点击加载</button> -->
     <!-- {{ $store.state.shopList }} -->
     <!-- {{ $store.state.test }} -->
-    <router-view id="router"></router-view>
+
+    <transition :name="transitionName">
+        <router-view id="router" class="child-view"></router-view>
+      </transition>
 
     <!-- footer -->
   <div id="footer">
@@ -222,6 +225,7 @@
   width: 100%;
   height: 60%;
   position: fixed;
+  overflow-x: hidden;
   left: 0;
   bottom: 0; 
 }
@@ -466,7 +470,8 @@ export default {
   data () {
       return {
         msg: '欢迎来到 index 页面',
-        shopList: []
+        shopList: [],
+        transitionName: 'slide-left'
       }
   },
   mounted () {
@@ -538,6 +543,14 @@ export default {
         // load more data
         // this.allLoaded = true;// if all data are loaded
         this.$refs.loadmore.onBottomLoaded();
+      },
+      beforeRouteUpdate (to, from, next) {
+        const toDepth = to.path.split('/').length
+        const fromDepth = from.path.split('/').length
+        console.log(to.path);
+        console.log(from.path);
+        this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+        next()
       }
     }
   }

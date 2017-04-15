@@ -1,9 +1,10 @@
 <template>
   <div>
     <div id="detail_header">
-      <a href="#/index" class="detail_a1 l"><i class="iconfont">&#xe62e;</i></a>
+      <a href="#/" class="detail_a1 l"><i class="iconfont">&#xe62e;</i></a>
       <a class="r detail_a2"><i class="iconfont">&#xe656;</i>{{msg}}</a>
     </div>
+  <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" ref="loadmore">
     <div id="detail_content">
       <div class="detail_content_top">
         <h1 class="detail_content_h1">自由国度</h1>
@@ -38,6 +39,12 @@
           室内设计：50-200￥/㎡ >
         </p>
       </div>
+      </div>
+  </mt-loadmore>
+      <div id="detail_bottom">
+        <p class="l"><i class="iconfont">&#xe650;</i><i class="iconfont">&#xe64a;</i><i class="iconfont">&#xe675;</i></p>
+        <p class="r"><i class="iconfont">&#xe612;</i>咨询<span></span></p>
+      </div>
     </div>
 
    
@@ -46,11 +53,30 @@
 </template>
 
 <script>
+
+import { Loadmore } from 'mint-ui'
+
 export default {
   name: 'detail',
   data () {
     return {
       msg: '作品信息'
+    }
+  },
+  mounted () {
+      this.$refs.loadmore.topPullText='';
+      this.$refs.loadmore.topDropText='';
+      this.$refs.loadmore.topLoadingText='';
+      this.$refs.loadmore.bottomPullText='';
+      this.$refs.loadmore.bottomDropText='';
+      this.$refs.loadmore.bottomLoadingText='';
+  },
+  methods: {
+    loadTop() {
+        this.$refs.loadmore.onTopLoaded()
+    },
+    loadBottom() {
+        this.$refs.loadmore.onBottomLoaded()
     }
   }
 }
@@ -61,12 +87,15 @@ export default {
 #detail_header{
   height:1rem;
   width: 100%;
+  background-color: #fff;
   padding-bottom: 0.15rem;
   border-bottom: 0.01rem solid #eee;
-  position: relative;
   font-family: "微软雅黑";
-  top: 0;
   line-height: 1rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000000;
 }
 .detail_a1{
   text-decoration: none;
@@ -76,6 +105,7 @@ export default {
 .detail_a2{
   font-size: 0.25rem;
   margin-right:0.4rem;
+  margin-top:0.1rem;
 }
 .detail_a2 .iconfont{
   margin-right: 0.1rem;
@@ -83,7 +113,13 @@ export default {
 }
 #detail_content{
   overflow: hidden;
+  width:100%;
   margin-bottom: 1rem;
+  position: relative;
+  left: 0;
+  top: 0.8rem;
+  bottom: 1rem;
+  padding-bottom: 1rem;
 }
 .detail_content_top{
   margin-left: 0.5rem;
@@ -101,11 +137,7 @@ export default {
   font-style:normal;
   border-radius: 0.25rem;
 }
-.detail_content_p2 .iconfont{
 
-}
-#detail_content ul li{
-}
 .detail_content_box{
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -212,5 +244,44 @@ export default {
   border-radius: 0.25rem;
   margin: 0 auto;
   background-color: #e5ffed;
+}
+#detail_bottom{
+  height:1rem;
+  width:100%;
+  background-color: #fff;
+  line-height: 1rem;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10000000;
+}
+#detail_bottom .l{
+  display: flex;
+  justify-content: space-around;
+  width:40%;
+  line-height: 1rem;
+  margin-left: 0.2rem;
+}
+#detail_bottom .l i{
+  font-size: 0.4rem;
+}
+#detail_bottom .r{
+  font-size: 0.25rem;
+  width:30%;
+  padding-right: 0.3rem;
+}
+#detail_bottom .r i{
+ font-size: 0.5rem;
+ margin-right: 0.2rem;
+}
+#detail_bottom .r span{
+  display: inline-block;
+  width:0;
+  height:0;
+  border-left: 0.12rem solid #000;
+  border-top:0.12rem solid #fff;
+  border-bottom: 0.12rem solid #fff;
+  margin-left: 0.2rem; 
 }
 </style>

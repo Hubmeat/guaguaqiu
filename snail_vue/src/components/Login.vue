@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>{{msg}}</h1>
+      <h1>
+          
+      </h1>
   </div>
 </template>
 
@@ -9,7 +11,7 @@ export default {
   name: 'login',
   data () {
     return {
-      msg: '这个是 login 页面'
+
     }
   }
 }
@@ -17,8 +19,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: 10px;
-}
+
 
 </style>

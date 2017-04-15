@@ -1,14 +1,9 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <router-view></router-view>
-    <!-- <a href="#/login">登录</a><br/>
-    <a href="#/register">注册</a><br/>
-    <a href="#/detail">详情</a><br/>
-    <a href="#/search">搜素</a><br/>
-    <a href="#/histroy">历史记录</a><br/>
-    <a href="#/chat">交谈</a><br/>
-    <a href="#/person">个人资料</a><br/> -->
+  
+    <transition :name="transitionName">
+      <router-view class='all'></router-view>
+    </transition>
   
 
 </div>
@@ -20,6 +15,10 @@ body,html,h1,h2,h3,h4,h5,h6,ul,li,a,p,dt,dl,dd,span,pre,b,input,button {
   margin: 0;
 }
 
+body,html{
+  width:100%;
+  height:100%;
+}
 .l {
   float: left;
 }
@@ -50,7 +49,12 @@ body,html,h1,h2,h3,h4,h5,h6,ul,li,a,p,dt,dl,dd,span,pre,b,input,button {
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+      transitionName: 'trans-left'
+    }
+  }
 }
 </script>
 
