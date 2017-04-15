@@ -1,4 +1,68 @@
+<template>
+    <div id="hp_all">
+      <div id="hp_head">
+        <div id="hp_photo">
+          <a href="/#person"><img src="../resource/img/homepage/1.png"></a>
+        </div>
+        <div id="hp_tittle">
+          <h2>噗嗤</h2>
+          <a href="/#person"><div id="hp_bianji">编辑装修材料</div></a>
+          <div id="hp_help">帮助？</div>
+        </div>
+      </div>
+    <div id="hp_middle">
+         <span>
+          <i class="iconfont">&#xe606;</i>
+           <p>订单</p>
+         </span>
+         <span>
+         <i class="iconfont">&#xe64f;</i>
+           <p>关注</p>
+         </span>
+         <span>
+          <i class="iconfont">&#xf0003;</i>
+           <p>设置</p>
+         </span>
+    </div>
+    <div id="hp_bottom">
+      <span>近一周浏览</span>
+    </div>
+    <!-- footer -->
+  <div id="footer">
+      <ul>
+          <li>
+              <i class="iconfont">&#xe604;</i>
+              <a href="#/">首页</a>
+          </li>
+          <li>
+              <i class="iconfont">&#xe614;</i>
+              <a href="#/collect">收藏</a>
+          </li>
+          <li>
+              <i class="iconfont">&#xe64a;</i>
+              <a href="#/message">个人中心</a>
+          </li>
+          <li>
+              <i class="iconfont">&#xe618;</i>
+              <a href="#/homepage">主页</a>
+          </li>
+      </ul>
+  </div>
+  </div>
+</template>
 
+<script>
+export default {
+  name: 'homepage',
+  data () {
+    return {
+      msg: ''
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .iconfont{
   color:#02b886;
@@ -94,115 +158,43 @@
   position: fixed;
   left: 0;
   bottom: 0;
-  }
-
-  #footer ul {
-    width: 100%;
-    overflow: hidden;
-    list-style: none;
-  }
-
-  #footer ul li {
-    width: 25%;
-    height: 0.5rem;
-    line-height: 0.25rem;
-    float: left;
-  }
-
-
-  #footer ul li:hover {
-    background-color: #fff;
-    color: #000;
-  }
-
-  #footer ul li i{
-      height: 0.25rem;
-      width: 100%;
-      display: block;
-      text-align: center;
-      font-size: 0.18rem;
-      color: #979797;
-  }
-
-  #footer ul li a{
-    text-align: center;
-      height: 0.25rem;
-      width: 100%;
-      display: block;
-      color: #979797;
-      font-size: 0.12rem;
-      text-decoration: none;
-  }
-</style>
-<template>
-    <div id="hp_all">
-      <div id="hp_head">
-        <div id="hp_photo">
-          <a href="/#person"><img src="../resource/img/homepage/1.png"></a>
-        </div>
-        <div id="hp_tittle">
-          <h2>噗嗤</h2>
-          <a href="/#person"><div id="hp_bianji">编辑装修材料</div></a>
-          <div id="hp_help">帮助？</div>
-        </div>
-      </div>
-    <div id="hp_middle">
-         <span>
-          <i class="iconfont">&#xe606;</i>
-           <p>订单</p>
-         </span>
-         <span>
-         <i class="iconfont">&#xe64f;</i>
-           <p>关注</p>
-         </span>
-         <span>
-          <i class="iconfont">&#xf0003;</i>
-           <p>设置</p>
-         </span>
-    </div>
-    <div id="hp_bottom">
-      <span>近一周浏览</span>
-    </div>
-    <!-- footer -->
-  <div id="footer">
-      <ul>
-          <li>
-              <i class="iconfont">&#xe604;</i>
-              <a href="#/">首页</a>
-          </li>
-          <li>
-              <i class="iconfont">&#xe614;</i>
-              <a href="#/collect">收藏</a>
-          </li>
-          <li>
-              <i class="iconfont">&#xe64a;</i>
-              <a href="#/message">个人中心</a>
-          </li>
-          <li>
-              <i class="iconfont">&#xe618;</i>
-              <a href="#/homepage">主页</a>
-          </li>
-      </ul>
-  </div>
-  </div>
-</template>
-
-<script>
-export default {
-  name: 'homepage',
-  data () {
-    return {
-      msg: ''
-    }
-  },
-  methods: {
-    created () {
-        $('#footer').css('display','none');
-      
-    }
-  }
 }
-</script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+#footer ul {
+  width: 100%;
+  overflow: hidden;
+  list-style: none;
+}
 
+#footer ul li {
+  width: 25%;
+  height: 0.5rem;
+  line-height: 0.25rem;
+  float: left;
+}
+
+
+#footer ul li:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+#footer ul li i{
+    height: 0.25rem;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 0.18rem;
+    color: #979797;
+}
+
+#footer ul li a{
+  text-align: center;
+    height: 0.25rem;
+    width: 100%;
+    display: block;
+    color: #979797;
+    font-size: 0.12rem;
+    text-decoration: none;
+}
+</style>

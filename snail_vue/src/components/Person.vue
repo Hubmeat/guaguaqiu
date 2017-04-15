@@ -9,7 +9,7 @@
     <div id="ps_photo">
        <img src="../resource/img/homepage/1.png" >
     </div>
-    <i class="iconfont" id="ps_mark"  v-on:click="onPhClick">&#xe6be;</i>
+    <i class="iconfont" id="ph_mark"  v-on:click="onPhClick">&#xe6be;</i>
     <div id="ps_name">
         <h3>噗嗤</h3>
         <div>修改昵称</div>
@@ -22,12 +22,12 @@
         <ul>
           <li>
             <span>城市</span>
-            <h3>北京</h3>
+            <h3 v-on:click="cityclick">北京</h3>
             <i class="iconfont im_back">&#xe62e;</i>
           </li>
           <li>
             <span>房屋类型</span>
-            <h3>公寓</h3>
+            <h3 v-on:click="styleclick">公寓</h3>
              <i class="iconfont im_back">&#xe62e;</i>
           </li>
           <li>
@@ -36,7 +36,7 @@
           </li>
           <li>
             <span>风格偏好</span>
-            <h4>请选择风格</h4>
+            <h4 v-on:click="goodclick">请选择风格</h4>
             <i class="iconfont im_back">&#xe62e;</i>
           </li>
           <li>
@@ -51,10 +51,67 @@
         </ul>
     </div>
     <div id="ps_foot"></div>
-    <mt-actionsheet
-  :actions="actions"
-  v-model="sheetVisible" id="takeph">
-</mt-actionsheet>
+    <div id="ps_city">
+        <div id="city_head">
+          <span v-on:click="cityBack">x</span>
+          <h3>所在城市</h3>
+        </div>
+        <ul>
+          <li>上海</li>
+          <li>成都</li>
+          <li>武汉</li>
+          <li>南京</li>
+          <li>杭州</li>
+          <li>北京</li>
+          <li>苏州</li>
+          <li>广州</li>
+          <li>深圳</li>
+          <li>合肥</li>
+          <li>无锡</li>
+          <li>天津</li>
+      <!--     <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li> -->
+        </ul>
+    </div>
+    <div id="ps_style">
+      <div id="city_head">
+          <span v-on:click="styleBack">x</span>
+      </div>
+          <ul>
+            <li>公寓</li>
+            <li>别墅</li>
+          </ul>
+    </div>
+    <div id="ps_good">
+      <div id="city_head">
+          <span v-on:click="goodBack">x</span>
+          <h3>风格偏好</h3>
+      </div>
+          <ul>
+            <li>北欧</li>
+            <li>日式</li>
+            <li>美式</li>
+            <li>中式</li>
+            <li>地中海</li>
+            <li>混搭</li>
+            <li>欧式</li>
+            <li>东南亚</li>
+            <li>简约</li>
+          </ul>
+    </div>
+    <div id="changename">
+        <div id="namehead">
+          <h3>昵称</h3>
+          <span>保存</span>
+        </div>
+        <div id="changecontent">
+          <input type="text"></input>
+        </div>
+    </div>
+    <div id="ps_mark"></div>
 </div>
 </template>
 
@@ -67,16 +124,57 @@ Vue.component(Actionsheet.name, Actionsheet);
 export default {
   name: 'person',
   data () {
+    
     return {
-      msg: ''
     }
   },
   methods:{
     onPhClick:function(){
       //console.log(sheetVisible)
       var tkph=document.getElementById('takeph');
-      tkph.sheetVisible=true;
       
+    },
+    cityclick:function(){
+      var psMark=document.getElementById('ps_mark');
+      var psCity=document.getElementById('ps_city');
+      psMark.style.opacity=0.3;
+      psMark.style.zIndex=2;
+      psCity.style.bottom=0;
+    },
+    cityBack:function(){
+       var psMark=document.getElementById('ps_mark');
+      var psCity=document.getElementById('ps_city');
+      psCity.style.bottom='-11.63rem';
+      psMark.style.opacity=0;
+      psMark.style.zIndex=-1;
+    },
+    styleclick:function(){
+      var psMark=document.getElementById('ps_mark');
+      var psStyle=document.getElementById('ps_style');
+      psMark.style.opacity=0.3;
+      psMark.style.zIndex=2;
+      psStyle.style.bottom=0;
+    },
+    styleBack:function(){
+      var psMark=document.getElementById('ps_mark');
+      var psStyle=document.getElementById('ps_style');
+      psStyle.style.bottom='-2.88rem';
+      psMark.style.opacity=0;
+      psMark.style.zIndex=-1;
+    },
+    goodclick:function(){
+      var psMark=document.getElementById('ps_mark');
+      var psGood=document.getElementById('ps_good');
+      psMark.style.opacity=0.3;
+      psMark.style.zIndex=2;
+      psGood.style.bottom=0;
+    },
+    goodBack:function(){
+      var psMark=document.getElementById('ps_mark');
+      var psGood=document.getElementById('ps_good');
+      psGood.style.bottom='-11.61rem';
+      psMark.style.opacity=0;
+      psMark.style.zIndex=-1;
     }
   }
 }
@@ -136,7 +234,7 @@ export default {
     width: 100%;
     height: 100%;
   }
-#ps_mark{
+#ph_mark{
   width: 1.3rem;
   height: 1.3rem;
   border-radius:50%;
@@ -184,6 +282,9 @@ export default {
   border-bottom: 1px #e7e7e7 solid;
   position: relative;
 }
+#ps_bottom li:nth-of-type(6){
+  border:none;
+}
 #ps_bottom span{
   font-size: 0.28rem;
   color:#999999;
@@ -229,5 +330,88 @@ export default {
 #ps_foot{
   height:1.6rem;
   background: #fafafa;
+}
+#ps_city{
+  width: 7.5rem;
+  min-height: 11.63rem;
+  position: fixed;
+  bottom:-11.63rem;
+  transition: 0.5s;
+  background:white;
+  z-index: 100;
+}
+#city_head{
+    height: 1rem;
+    position: relative;
+    text-align: center;
+    border-bottom: 1px #e7e7e7 solid;
+}
+#city_head h3,span{
+  font-size: 0.27rem;
+  color:#666666; 
+}
+#city_head h3{
+  line-height: 1rem;
+}
+#city_head span{
+  width: 0.27rem;
+  height: 0.27rem;
+  top:1.2em;
+  left:0.32rem;
+  position: absolute;
+}
+#ps_city li,#ps_style li,#ps_good li{
+  height: 0.87rem;
+  line-height: 0.87rem;
+  list-style: none;
+  margin-left: 0.3rem;
+  border-bottom: 1px #e7e7e7 solid;
+  font-size: 0.28rem;
+  color:#666666;
+}
+#ps_style li:nth-of-type(2){
+  border: none;
+}
+#ps_style{
+  width: 7.5rem;
+  height: 2.88rem;
+  position: fixed;
+  bottom: -2.88rem;
+  transition: 0.5s;
+  background:white;
+  z-index: 100;
+}
+#ps_good{
+  width: 7.5rem;
+  height: 11.61rem;
+  position: fixed;
+  bottom: -11.61rem;
+  transition: 0.5s;
+  background:white;
+  z-index: 100;
+}
+#changename{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  text-align: center;
+}
+#namehead{
+  height: 0.89rem;
+  line-height: 0.89rem;
+}
+#namehead h3{
+  font-size: 0.36rem;
+}
+#ps_mark{
+  background: black;
+  opacity: 0;
+  position: absolute;
+  transition: 0.5s;
+  top:0;
+  width: 7.5rem;
+  height: 17.19rem;
+  z-index: -1;
 }
 </style>
