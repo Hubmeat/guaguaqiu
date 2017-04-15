@@ -22,6 +22,7 @@ import Style from '@/components/childPage/Style'
 import Works from '@/components/collectChild/Works'
 import Image from '@/components/collectChild/Image'
 import Goods from '@/components/collectChild/Goods'
+import RegisterCity from '@/components/registerCity/RegisterCity'
 
 Vue.use(Router)
 
@@ -114,7 +115,14 @@ export default new Router({
     {
       path: '/register',
       name: 'Register',
-      component: Register
+      component: Register,
+      children: [
+        {
+          path: '/register/registercity',
+          name: 'RegisterCity',
+          component: RegisterCity
+        }
+      ]
     },
     {
       path: '/histroy',

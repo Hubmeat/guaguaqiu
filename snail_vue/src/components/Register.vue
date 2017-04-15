@@ -3,11 +3,11 @@
   <div class="bg bg-blur"></div>
   <div id="login">
        <p class="p1"><a href="#/login">取消</a></p>
-       <p class="p2">请输入你的手机号</p>
+       <p class="p2" style="font-size:0.68rem; font-family:'楷体'">呱呱装饰  <span style="font-size:0.28rem; font-family:'楷体';">只为你更美的生活</span></p>
        <table>
        <div class="country">
          <span class="l sp1">国家/地区</span>
-         <span >中国</span>
+         <span><a href="#/register/registercity">中国</a></span>
        </div>
        
        <div class="phone">
@@ -22,53 +22,23 @@
         <button @click='checkVal' id="regster">注册</button>
        </table>
   </div>
+        <transition :name='transitionName'>
+           <router-view id='register-view' class='register'></router-view>
+        </transition>
 </div>
 </template>
-
-
-<script>
-import { MessageBox } from 'mint-ui'
-import { Indicator } from 'mint-ui';
-
-export default {
-  name: 'regiseter',
-  data () {
-      return {
-        // transitionName: 'slide-left'
-      }
-  },
-  methods: {
-    checkVal () {
-
-      $('#regster').css('background-color','#a0dea4')
-      $('#regster').css('color','#fff');
-      
-      var phoneReg = /0?(13|14|15|18)[0-9]{9}/;
-      var passwordReg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
-
-      if ($('#phone').val() === '') {
-        MessageBox.alert('请输入你的手机号', '');
-      } else if (phoneReg.test($('#phone').val()) === false) {
-        MessageBox.alert('这是手机号吗？？', '');
-      } else if (passwordReg.test($('#pwd').val()) === false) {
-        MessageBox.alert('密码不符合规则', '');
-      } else {
-        Indicator.open();
-        var that = this;
-        setTimeout(function () {
-          Indicator.close();
-          MessageBox.alert('注册成功', '');
-          that.$router.push('/login');
-        },1500)
-      }
-    }
-  }
-}
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
+  #register-view {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  }
+
   .bg {
     height: 40%;
     width: 100%;
@@ -136,6 +106,12 @@ export default {
     font-weight: 600;
   }
 
+  #login .country span:nth-child(2) a {
+    text-decoration: none;
+    width: 100%;
+    color: #29ba8f;
+  }
+
   #login table{
     margin:0 0.4rem;
     width:6.68rem;
@@ -176,3 +152,78 @@ export default {
   }
 
 </style>
+
+<script>
+import { MessageBox } from 'mint-ui'
+import { Indicator } from 'mint-ui'
+
+export default {
+  name: 'regiseter',
+  data () {
+      return {
+        transitionName: 'slide-bottom'
+      }
+  },
+  methods: {
+    checkVal () {
+
+      $('#regster').css('background-color','#a0dea4')
+      $('#regster').css('color','#fff');
+
+      // let formData = new FormData();  
+      // formData.append("phone",$('#phone').val());  
+      // formData.append("password",$('#pwd').val());  
+      // console.log(formData.phone)
+
+      var phoneReg = /0?(13|14|15|18)[0-9]{9}/;
+      var passwordReg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+
+      if ($('#phone').val() === '') {
+        MessageBox.alert('请输入你的手机号', '');
+      } else if (phoneReg.test($('#phone').val()) === false) {
+        MessageBox.alert('这是手机号吗？？', '');
+      } else if (passwordReg.test($('#pwd').val()) === false) {
+        MessageBox.alert('密码不符合规则', '');
+      } else {
+            Indicator.open();
+            var that = this;
+            // 发送请求
+            var phone , password;
+            fetch('http://localhost:3000/test', {
+              mode: "cors",
+              headers: {
+                'content-type': 'application/json'
+              },
+              method: 'POST',
+              body: JSON.stringify({
+                phone: $('#phone').val(),
+                password: $('#pwd').val()
+              })
+             })
+             .then(function (resp) {
+                console.log(resp)
+                console.log(resp.status)
+                return resp.json()
+             })
+             .then( (result) => {
+                console.log(result.status === 'ok');
+                if (result.status === 'ok') {
+                   setTimeout(function () {
+                      Indicator.close();
+                      MessageBox.alert('注册成功', '');
+                      that.$store.state.userPhone = result.phone
+                      that.$router.push('/login');
+                    },1500)
+                } else {
+                    setTimeout(function () {
+                      Indicator.close();
+                      MessageBox.alert('用户名已存在', '');
+                    },1500)
+                }
+             })
+             // 请求结束
+      }
+    }
+  }
+}
+</script>

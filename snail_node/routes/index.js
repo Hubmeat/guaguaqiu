@@ -8,6 +8,7 @@ var mysql = require('mysql')
 // });
 
 router.get('/trans', function(req, res, next) {
+	console.log('dada')
 	var connection = mysql.createConnection({
 		  host     : 'localhost',
 		  user     : 'root',
@@ -16,6 +17,8 @@ router.get('/trans', function(req, res, next) {
 	});
 
 	connection.connect();
+
+	// session_start();
 
 	var sql = 'SELECT * FROM indexlist';
 

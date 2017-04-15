@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 const state = {
 	shopList:[],
-	test: 0
+	test: 0,
+	userPhone:""
 }
 
 const mutations = {

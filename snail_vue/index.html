@@ -42,6 +42,23 @@
           transform: translate(-100%, 0);
         }
 
+        .register {    
+          position: absolute;
+          transition: all 1s cubic-bezier(.55,0,.1,1);
+        }
+
+        .slide-bottom-enter, .slide-bottom-leave-active {
+          opacity: 0;
+          -webkit-transform: translate(0, 100%);
+          transform: translate(0, 100%);
+        }
+
+        .slide-bottom-leave-active, .slide-bottom-enter {
+          opacity: 0;
+          -webkit-transform: translate(0, 100%);
+          transform: translate(0,100%);
+        }
+
     </style>
     <title>guaguaniu</title>
     <script>

@@ -192,7 +192,7 @@
 
     <transition :name="transitionName">
         <router-view id="router" class="child-view"></router-view>
-      </transition>
+    </transition>
 
     <!-- footer -->
   <div id="footer">
