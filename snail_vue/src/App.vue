@@ -44,6 +44,23 @@ body,html{
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*==========  icontfont_2 =============*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('./resource/iconfont_2/iconfont.eot');
+  src: url('./resource/iconfont_2/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('./resource/iconfont_2/iconfont.woff') format('woff'),
+  url('./resource/iconfont_2/iconfont.ttf') format('truetype'),
+  url('./resource/iconfont_2/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 </style>
 
